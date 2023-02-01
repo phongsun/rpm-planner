@@ -15,7 +15,7 @@ export const CreateReminder = (props) => {
                 value={props.date}
                 onChange={(e) => setDate(e.target.value)}
             ></input>
-            <button onClick={() => props.finishReminder(reminder, date)}>OK</button>
+            <button onClick={() => props.finishReminder(reminder, date, false)}>OK</button>
         </div>;
         //console.log("true");
     } else {

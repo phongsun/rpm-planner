@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import React, { useState } from "react";
 import { CreateReminder } from './CreateReminder';
+import { ReminderList } from './ReminderList';
 
 function App() {
   let [createReminder, setCreateReminder] = useState(false);
@@ -21,8 +22,8 @@ function App() {
       </header>
       <CreateReminder createReminder = {createReminder} 
       test = "Test"
-      finishReminder = {(reminder, date) => {
-        let newReminder = {reminder:reminder, date:date};
+      finishReminder = {(reminder, date, done) => {
+        let newReminder = {reminder:reminder, date:date, done:done};
         //setReminderList([...reminderList, newReminder]);
         reminderList.push(newReminder);
         console.log("reminderList length: " + reminderList.length);
@@ -30,6 +31,10 @@ function App() {
         setCreateReminder(false);
       }}
       />
+      <ReminderList reminderList={reminderList}
+      changeDone={(reminder) =>{
+        // update the state of done
+      }}/>
     </div>
   );
 }
