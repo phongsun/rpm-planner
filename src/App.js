@@ -8,7 +8,7 @@ function App() {
   let [createReminder, setCreateReminder] = useState(false);
   let [reminderList, setReminderList] = useState([]);
 
-  const newReminder = () => {
+  let newReminder = () => {
     setCreateReminder(true);
     console.log(createReminder);
   }
@@ -32,8 +32,16 @@ function App() {
       }}
       />
       <ReminderList reminderList={reminderList}
-      changeDone={(reminder) =>{
+      changeDone={(index) =>{
         // update the state of done
+        // i don't know if this works yet
+        reminderList[index].done = true;
+        setReminderList(reminderList);
+      }
+      }
+      removeReminder={(index)=>{
+        reminderList.splice(index, 1);
+        console.log("reminderList length: " + reminderList.length);
       }}/>
     </div>
   );
