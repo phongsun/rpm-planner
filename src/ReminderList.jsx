@@ -1,9 +1,5 @@
 import React, { useState } from "react";
 
-// TWO BUGS THAT NEED TO BE FIXED:
-// 1. no duplicate entries in state
-// 2. Delete button should pass key of parent div as an int as the "index" variable successfully
-
 export const ReminderList = (props) => {
     let testIfThisWorks = [];
     let [reminderHtml, setReminderHtml] = useState([]);
@@ -17,7 +13,7 @@ export const ReminderList = (props) => {
         //populate();
         //console.log("reminderHtml length: "  + reminderHtml.length);
     }
-    let populate = () => {
+    /*let populate = () => {
         for(let reminder of props.reminderList){
             reminderHtml.push(<div key={props.reminderList.indexOf(reminder).toString()}>
                 <p>{reminder.reminder}   {reminder.date}   <input type="checkbox"></input> <button className="delete-reminder-button"
@@ -27,11 +23,11 @@ export const ReminderList = (props) => {
         }
         //setRealHtml(reminderHtml);
     }
-    populate();
+    populate();*/
     return(
         <div>
             <h1>TO-DO:</h1>
-            {realHtml.map(x => x)}
+            {props.reminderList.map(x => x)}
         </div>
     );
 }

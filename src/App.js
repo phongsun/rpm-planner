@@ -4,6 +4,9 @@ import React, { useState } from "react";
 import { CreateReminder } from './CreateReminder';
 import { ReminderList } from './ReminderList';
 
+// TODO: 
+// 1. Delete reminder
+
 function App() {
   let [createReminder, setCreateReminder] = useState(false);
   let [reminderList, setReminderList] = useState([]);
@@ -24,8 +27,11 @@ function App() {
       test = "Test"
       finishReminder = {(reminder, date, done) => {
         let newReminder = {reminder:reminder, date:date, done:done};
+        let reminderTag = <div>
+          <p>{reminder}   {date}   <input type="checkbox"></input> <button className="delete-reminder-button">X</button></p>
+        </div>;
         //setReminderList([...reminderList, newReminder]);
-        reminderList.push(newReminder);
+        reminderList.push(reminderTag);
         console.log("reminderList length: " + reminderList.length);
         console.log("reminderList: " + JSON.stringify(reminderList[reminderList.length - 1]))
         setCreateReminder(false);
